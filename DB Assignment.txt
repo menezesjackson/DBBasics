@@ -1,0 +1,120 @@
+
+ASSIGNMENT 1:
+
+
+Statement 1 : CREATE TABLE User (UserID integer UNIQUE,FullName varchar(255) NOT NULL,Country_code char(10),DateOfBirth timestamp);
+
+Message : TABLE CREATED
+
+
+
+
+INSERT Statements : 
+
+INSERT INTO User VALUES (1, 'SATWIK', 'IND', CURRENT_TIMESTAMP);
+INSERT INTO User VALUES (NULL, 'ABHI', 'US', CURRENT_TIMESTAMP);
+INSERT INTO User VALUES (1, 'SATWIK', 'ZIM', CURRENT_TIMESTAMP);
+INSERT INTO User VALUES (2, 'SATWIK', 'ZIM', CURRENT_TIMESTAMP);
+SELECT * FROM User;
+
+
+Message :
+
+1|SATWIK|IND|2019-08-06 13:21:58
+
+|ABHI|US|2019-08-06 13:21:58
+
+2|SATWIK|ZIM|2019-08-06 13:21:58
+
+
+Error: near line 4: UNIQUE constraint failed: User.UserID
+
+Error: near line 7: near "er": syntax error
+ 
+
+
+
+
+
+
+
+
+
+ASSIGNMENT 2 :
+
+
+Creating Tables:
+CREATE TABLE customer (UserID integer UNIQUE,FullName varchar(255) NOT NULL);
+
+CREATE TABLE food_order (OrderId integer UNIQUE,UserID integer ,FoodName varchar(255) NOT NULL,Order_date timestamp);
+
+
+INSERTING Statements :
+
+INSERT INTO customer VALUES (1,'Satwik');
+INSERT INTO customer VALUES (2,'Sai Kiran');
+
+INSERT INTO customer VALUES (3,'Abhishek');
+
+INSERT INTO customer VALUES (4,'Chaitanya');
+
+
+
+
+INSERT INTO food_order VALUES (1,1,'biryani','2018-1-1')
+;
+INSERT INTO food_order VALUES (2,1,'chicken','2019-1-2');
+
+INSERT INTO food_order VALUES (3,2,'kabab','2018-2-5');
+
+INSERT INTO food_order VALUES (4,2,'haleem','2018-6-2');
+
+INSERT INTO food_order VALUES (5,3,'panner curry','2018-3-2');
+
+INSERT INTO food_order VALUES (6,4,'dosa','2018-2-3');
+
+
+
+
+
+
+
+JOIN STATEMENT 1:     
+	
+SELECT OrderID, FoodName ,Order_date FROM food_order JOIN customer ON food_order.UserId = customer.UserId AND customer.FullName ='Satwik';
+
+MESSAGE :
+
+
+1|biryani|2018-1-1
+2
+|chicken|2019-1-2
+
+
+
+
+
+
+JOIN STATEMENT 2:
+
+SELECT customer.UserId, food_order.FoodName, food_order.OrderId,  food_order.Order_date FROM customer 
+INNER JOIN food_order on customer.UserId = food_order.UserId 
+WHERE food_order.Order_date between '2018-1-30' and '2018-4-2';
+
+
+MESSAGE :
+
+2|kabab|3|2018-2-5
+3
+|panner curry|5|2018-3-2
+4
+|dosa|6|2018-2-3
+
+
+
+
+
+
+
+
+
