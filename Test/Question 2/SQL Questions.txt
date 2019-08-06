@@ -1,0 +1,56 @@
+Question No.-2
+
+
+
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    Name varchar(255) NOT NULL,
+    CONSTRAINT PK_Person PRIMARY KEY (ID)
+);
+
+
+
+INSERT INTO Custom (ID,Name)
+VALUES (33,'Saurav');
+
+INSERT INTO Custom (ID,Name)
+VALUES (44,'Shivi');
+
+INSERT INTO Custom (ID,Name)
+VALUES (47,'Shiva');
+
+
+CREATE TABLE FoodOrder (
+    OrderID int NOT NULL,
+    FoodItem varchar(255) ,
+    date order_date,
+    ID int,
+    CONSTRAINT MK_Person PRIMARY KEY (OrderID),
+    CONSTRAINT FK_PersonOrder FOREIGN KEY (ID)
+    REFERENCES Custom(ID)
+);
+
+
+INSERT INTO FoodOrder (OrderID,FoodItem,order_date,ID)
+VALUES (99,'Burger',2008-11-11,47);
+
+INSERT INTO FoodOrder (OrderID,FoodItem,order_date,ID)
+VALUES (89,'patty',2008-12-11,47);
+
+INSERT INTO FoodOrder (OrderID,FoodItem,order_date,ID)
+VALUES (79,'mango',2008-11-13,47);
+
+
+
+SELECT FoodOrder.ID,FoodOrder.FoodItem,
+FROM FoodOrder
+INNER JOIN Custom ON FoodOrder.ID = Custom.ID;
+
+
+SELECT Custom.Name
+FROM FoodOrder
+INNER JOIN Custom ON FoodOrder.ID = Custom.ID
+where order_date BETWEEN 2008-11-11 AND 2008-11-13;
+
+
+

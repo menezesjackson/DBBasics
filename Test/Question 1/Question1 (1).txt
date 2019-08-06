@@ -1,0 +1,33 @@
+create table shubham1(
+user_id int(10)
+,full_name varchar(255) NOT NULL
+,country_code char(255)
+,dob timestamp
+);
+
+CREATE UNIQUE INDEX uidx_uid
+ON shubham1 (user_id);
+
+INSERT INTO shubham1
+VALUES(
+null
+,"RahuL"
+,"US"
+,'2008-01-01'
+)
+
+INSERT INTO shubham1
+VALUES(
+15
+,"Shubham"
+,"AUS"
+,'1997-05-09'
+)
+
+INSERT INTO shubham1
+VALUES(
+14
+,"Shubham"
+,"IND"
+,'1999-04-08'
+)
