@@ -1,0 +1,34 @@
+
+2.create table CUSTOMER (name varchar(30),user_id varchar(40) primary key);
+
+result:You have made changes to the database.
+insert into CUSTOMER VALUES("Rakesh","1001");
+insert into CUNTOMER VALUES("Dinesh","1002");
+insert into CUNTOMER VALUES("Gopal","1003");
+
+You have made changes to the database. Rows affected: 1
+
+//output
+
+Number of Records: 3
+name	user_id
+Rakesh	1001
+Dinesh	1002
+Gopal	1003
+
+
+create table FOOD_ORDER (order_id varchar(20),user_id varchar(20),food_item varchar(40),order_date date);
+
+You have made changes to the database.
+
+insert into FOOD_ORDER values ("1","1001","chilli","4.3.2019");
+insert into FOOD_ORDER values ("2","1002","biryani","2.7.2019");
+
+You have made changes to the database. Rows affected: 1
+
+
+Number of Records: 2
+order_id	user_id		food_item		order_date
+1		1001		chilli			4.3.2019
+2		1002		biryani			2.7.2019
+
