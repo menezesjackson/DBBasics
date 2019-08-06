@@ -1,0 +1,40 @@
+1)CREATE TABLE USER(user_id number primary key not null,full_name varchar(30) not null unique,country_code char(30),dob timestamp);
+
+  INSERT INTO USER(user_id,full_name,country_code,dob) VALUES(1,'Abhishek','IND',"1997-06-27 10:01:21");
+
+  INSERT INTO USER(user_id,full_name,country_code,dob) VALUES(null,'Satwik','IND',"1997-05-12 12:10:11");
+  --Error: near line 5: NOT NULL constraint failed: USER.user_id
+
+  INSERT INTO USER(user_id,full_name,country_code,dob) VALUES(3,'Abhishek','IND',CURRENT_TIMESTAMP);
+  --Error: near line 7: UNIQUE constraint failed: USER.full_name
+
+  select * from USER;
+  -- 1|Abhishek|IND|1997-06-27 10:01:21
+  
+  
+  
+2)CREATE TABLE customer(userId number primary key not null, name varchar(30));
+
+  CREATE TABLE food_order(order_id number primary key not null,userId number not null,food_item varchar(30),order_date date,foreign key(userId) references customer(userId));
+
+  INSERT INTO customer(userId,name) VALUES(1,"Abhishek");
+  INSERT INTO customer(userId,name) VALUES(2,"Satwik");
+  INSERT INTO customer(userId,name) VALUES(3,"SaiKiran");
+
+  INSERT INTO food_order(order_id,userId,food_item,order_date) VALUES(1,2,"Burger","2019-02-12");
+  INSERT INTO food_order(order_id,userId,food_item,order_date) VALUES(2,2,"Coke Float","2019-02-12");
+  INSERT INTO food_order(order_id,userId,food_item,order_date) VALUES(3,1,"French Fries","2019-02-02");
+  INSERT INTO food_order(order_id,userId,food_item,order_date) VALUES(4,1,"Burger","2019-02-02");
+
+  SELECT * FROM food_order AS f JOIN customer AS c ON f.userId = c.userId AND c.name = "Abhishek";
+  
+  -- 1|2|Burger|2019-02-12|2|Satwik
+	 2|2|Coke Float|2019-02-12|2|Satwik
+	 3|1|French Fries|2019-02-02|1|Abhishek
+	 4|1|Burger|2019-02-02|1|Abhishek
+	 
+  SELECT * FROM food_order AS f JOIN customer AS c ON f.userId = c.userId AND f.order_date BETWEEN "2019-02-01" AND "2019-02-10";
+  
+  --3|1|French Fries|2019-02-02|1|Abhishek
+	4|1|Burger|2019-02-02|1|Abhishek
+
