@@ -1,0 +1,104 @@
+CREATE TABLE customer (
+name varchar(20),
+user_id numeric  NOT NULL UNIQUE);
+
+
+
+
+result:
+You have made changes to the database.
+
+----------------------------------------------------------
+
+
+
+INSERT INTO customer(name,user_id )
+VALUES ('saurabh',100);
+
+INSERT INTO customer(name,user_id )
+VALUES ('aman',101);
+
+INSERT INTO customer(name,user_id )
+VALUES ('somesh',103);
+
+
+
+
+result:
+You have made changes to the database.
+
+----------------------------------------------------------
+
+
+
+
+CREATE TABLE food_order (
+user_id varchar(20),
+order_id numeric  NOT NULL UNIQUE,
+food_item varchar(20),
+order_date date,
+FOREIGN KEY (user_id) REFERENCES customer(user_id)
+
+);
+
+
+
+
+result:
+You have made changes to the database.
+
+
+----------------------------------------------------------
+
+
+
+
+INSERT INTO food_order(user_id,order_id,food_item,order_date )
+VALUES (100,100,'paneer','2019-08-06');
+INSERT INTO food_order(user_id,order_id,food_item,order_date )
+VALUES (101,101,'idli','2019-08-06');
+
+
+
+result:
+You have made changes to the database.
+
+
+
+----------------------------------------------------------
+
+
+
+
+
+
+SELECT food_order.food_item
+FROM customer
+JOIN food_order
+ON customer.user_id=food_order.user_id
+where user_id =100;
+
+result:
+food_item
+paneer
+
+----------------------------------------------------------
+
+
+
+
+SELECT customer.user_id
+FROM customer
+NATURAL JOIN food_order
+
+WHERE order_date BETWEEN '2019-08-01' and '2019-08-16';
+
+result; 
+
+user_id	order_id	food_item	order_date
+100	100	paneer	2019-08-06
+101	101	paneer	2019-08-06
+
+
+
+----------------------------------------------------------

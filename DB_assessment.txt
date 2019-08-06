@@ -1,0 +1,59 @@
+-------------------------------------------------
+
+
+CREATE TABLE USER (
+user_id numeric(10) UNIQUE,
+full_name varchar(20) NOT NULL,
+country_code char,
+dob timestamp);
+
+result:
+You have made changes to the database.
+
+
+----------------------------------------------------------
+
+CREATE INDEX idx_id
+
+ON USER (user_id);
+
+
+
+result:
+You have made changes to the database.
+        
+----------------------------------------------------------		
+
+
+INSERT INTO USER(user_id ,full_name,country_code,dob )
+VALUES (100,'saurabh','xyz','1996-08-16 12:00:00');		
+
+
+
+result:
+You have made changes to the database.
+
+----------------------------------------------------------
+
+
+
+INSERT INTO USER(full_name,country_code,dob )
+VALUES ('saurabh','xyz','1996-08-17 12:00:00');
+
+result:
+   error(useR_id cannot be null);
+----------------------------------------------------------
+
+
+
+INSERT INTO USER(full_name,country_code,dob )
+VALUES ('aman','xyzd','1996-08-17 12:00:00');
+
+result:
+   error(useR_id cannot be null);
+
+----------------------------------------------------------
+
+
+
+
