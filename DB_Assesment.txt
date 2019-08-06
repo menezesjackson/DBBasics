@@ -1,0 +1,36 @@
+1.
+
+a.
+
+CREATE TABLE USERS (
+    user_id int,
+    full_name varchar(255),
+    country_code char(3),
+    dob DATE
+);
+You have made changes to the database.
+b.
+
+ALTER TABLE USERS
+ADD CONSTRAINT INDEX UNIQUE (user_id);
+You have made changes to the database.
+
+c.
+
+ALTER TABLE USER1
+MODIFY full_name varchar(255) NOT NULL;
+You have made changes to the database.
+
+
+d.
+
+INSERT INTO USERS ( full_name, country_code, dob)
+VALUES ('harsh','ind','2018-10-21'),('harsh','ind','2018-10-21');
+
+INSERT INTO USERS (user_id, full_name, country_code, dob)
+VALUES (2,'harsh','ind','2018-10-21'),(2,'harsh','ind','2018-10-21');
+
+
+out-
+Error 1: could not execute statement due to a constraint failure (19 UNIQUE constraint failed: USERS.user_id)
+
