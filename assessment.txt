@@ -1,0 +1,35 @@
+1.
+a.
+CREATE TABLE User(
+user_id int,
+full_name varchar(255),
+country_code char(4),
+dob varchar(255)
+);
+
+
+
+b.
+CREATE UNIQUE INDEX index_id
+ON User(user_id);
+        
+
+c.
+ALTER TABLE User
+MODIFY full_name varchar(255) NOT NULL;
+
+Syntax error at MODIFY
+
+
+d.
+INSERT INTO User(user_id,full_name)
+VALUES (1,"Shashank"),
+VALUES (1,"Shashank"),
+VALUES (5,"Manohar");
+
+Error: UNIQUE constraint failed: User.user_id
+
+
+
+
+
