@@ -1,0 +1,98 @@
+
+1Q)
+
+CREATE TABLE USER(
+   user_id numeric PRIMARY KEY UNIQUE,
+   full_name varchar NOT NULL, 
+   country_code char,
+   dob timestamp
+   );
+
+
+INSERT INTO USER VALUES(NULL,'Tom', 'KA',  CURRENT_TIMESTAMP);
+
+INSERT INTO USER VALUES(NULL,'Lucy', 'TN',  CURRENT_TIMESTAMP);
+
+INSERT INTO USER VALUES(NULL,'Tom', 'AP',  CURRENT_TIMESTAMP);
+
+INSERT INTO USER VALUES(4,'Jane', 'GJ', CURRENT_TIMESTAMP);
+
+INSERT INTO USER VALUES(5,'Robert', 'MP',  CURRENT_TIMESTAMP);
+
+INSERT INTO USER VALUES(6, NULL, 'MP',  CURRENT_TIMESTAMP);
+COMMIT;
+
+
+
+
+SELECT * FROM USER;
+
+sol)
+
+|Tom|KA|2019-08-06 13:45:08
+
+|Lucy|TN|2019-08-06 13:45:08
+
+|Tom|AP|2019-08-06 13:45:08
+4
+|Jane|GJ|2019-08-06 13:45:08
+5
+|Robert|MP|2019-08-06 13:45:08
+
+
+
+ Error: near line 50: NOT NULL constraint failed: USER.full_name
+
+ Error: near line 51: cannot commit - no transaction is active
+
+
+
+2Q)
+
+
+
+CREATE TABLE customer(
+   name varchar,
+   user_id numeric 
+   );
+  
+
+INSERT INTO customer VALUES('Tom', 1);
+
+INSERT INTO customer VALUES('John', 2);
+
+
+
+
+
+CREATE TABLE food_order(
+   user_id numeric,
+   order_id numeric,
+   food_item varchar,
+order_date timestamp
+);
+
+
+INSERT INTO food_order VALUES(1, 201, 'pizza', CURRENT_TIMESTAMP);
+
+INSERT INTO food_order VALUES(3, 203, 'burger', CURRENT_TIMESTAMP);
+
+
+a)
+
+
+
+SELECT name,food_item from customer as c INNER JOIN food_order as f where c.user_id = f.user_id;
+
+Sol) Tom
+     pizza
+
+
+b)
+
+
+SELECT name from customer as c INNER JOIN food_order as f where c.user_id = f.user_id and (order_date>='2008-05-20 00:00:00' and order_date<='2009-10-08 00:00:00');
+
+Sol) Tom
+
+    John 	
