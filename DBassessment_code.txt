@@ -1,0 +1,76 @@
+----------------------------QUESTION 1-------------------------------------
+
+CREATE TABLE USER (
+user_id numeric UNIQUE,
+full_name varchar NOT NULL,
+country_code char,
+dob timestamp
+);
+
+Result: You have made changes to the database.
+
+
+
+INSERT INTO USER
+VALUES(1, 'Manoram Taparia', 'IN', '1995-10-14 06:50:45');
+
+Result: You have made changes to the database. Rows affected: 1
+
+INSERT INTO USER
+VALUES(NULL, 'Benjamin Franklin', 'AU', '1995-10-16 06:50:45');
+
+Result: You have made changes to the database. Rows affected: 1
+
+INSERT INTO USER
+VALUES(3, 'Benjamin Franklin', 'NZ', '1996-10-16 06:50:45');
+
+Result: You have made changes to the database. Rows affected: 1
+
+
+
+------------------------------QUESTION 2-----------------------------------
+
+CREATE TABLE CUSTOMER (
+name varchar,
+user_id numeric
+);
+
+Result: You have made changes to the database.
+
+INSERT INTO CUSTOMER
+VALUES ('Manoram',1);
+
+INSERT INTO CUSTOMER
+VALUES ('Gareth',2);
+
+
+CREATE TABLE FOOD_ORDER (
+order_id numeric,
+user_id numeric,
+food_item varchar,
+order_date date
+);
+
+Result: You have made changes to the database.
+
+INSERT INTO FOOD_ORDER
+VALUES (19, 1, 'MASALA DOSA', '2019-07-06');
+
+INSERT INTO FOOD_ORDER
+VALUES (18, 2, 'JEERA RICE', '2019-08-07');
+
+INSERT INTO FOOD_ORDER
+VALUES (17, 1, 'PLAIN RICE', '2019-08-06');
+
+
+SELECT *
+FROM CUSTOMER
+INNER JOIN FOOD_ORDER
+ON CUSTOMER.user_id = FOOD_ORDER.user_id
+AND CUSTOMER.user_id = 1;
+
+Number of Records: 2
+name	user_id	order_id	food_item	order_date
+Manoram	1	19	MASALA DOSA	2019-07-06
+Manoram	1	17	PLAIN RICE	2019-08-06
+
