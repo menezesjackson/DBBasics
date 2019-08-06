@@ -1,0 +1,71 @@
+CREATE TABLE CUSTOMER (
+	user_id numeric,
+     name varchar[40]
+)
+
+You have made changes to the database.
+
+CREATE TABLE FOOD_ORDER (
+	order_id numeric,
+    user_id numeric,
+     food_item VARCHAR[20],
+     order_date timestamp
+)
+
+You have made changes to the database.
+
+INSERT INTO CUSTOMER 
+VALUES( 12, "PRATEEK");
+
+
+INSERT INTO CUSTOMER 
+VALUES( 15, "MANORAM");
+
+
+INSERT INTO CUSTOMER 
+VALUES( 19, "SHUBHAM");
+
+
+SELECT * FROM [CUSTOMER]
+
+user_id	name
+12	PRATEEK
+15	MANORAM
+19	SHUBHAM
+
+
+INSERT INTO FOOD_ORDER 
+VALUES( 1, 12,"JUICE", '1966-02-17 00:30:59');
+
+INSERT INTO FOOD_ORDER 
+VALUES( 3, 12,"WATER", '1966-02-23 00:30:59');
+
+
+INSERT INTO FOOD_ORDER 
+VALUES( 5, 15,"WATER", '1966-03-23 00:30:59');
+
+
+INSERT INTO FOOD_ORDER 
+VALUES( 4, 15,"MEAL", '1966-03-23 00:30:51');
+
+
+SELECT * FROM [FOOD_ORDER]
+
+order_id	user_id	food_item	order_date
+1	12	JUICE	1966-02-17 00:30:59
+3	12	WATER	1966-02-23 00:30:59
+5	15	WATER	1966-03-23 00:30:59
+4	15	MEAL	1966-03-23 00:30:51
+
+
+SELECT CUSTOMER.user_id, name
+FROM CUSTOMER
+INNER JOIN FOOD_ORDER
+ON CUSTOMER.user_id = FOOD_ORDER.user_id
+AND CUSTOMER.user_id = 12;
+
+
+user_id	name
+12	PRATEEK
+12	PRATEEK
+

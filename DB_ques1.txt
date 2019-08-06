@@ -1,0 +1,37 @@
+CREATE TABLE USER (
+	user_id numeric UNIQUE,
+     full_name varchar[40] NOT NULL,
+     country_code char[2],
+    dob  timestamp
+)
+
+        
+INSERT INTO USER 
+VALUES(21,"PRATEEK KUMAR MAURYA",'IN','1998-02-16 00:00:00');
+
+SELECT * FROM [USER]
+
+21	PRATEEK KUMAR MAURYA	IN	1998-02-16 00:00:00
+
+INSERT INTO USER 
+VALUES(NULL,"PRATEEK KUMAR MAURYA",'IN','1998-02-16 00:00:00');
+
+
+You have made changes to the database. Rows affected: 1
+//NUll user_id and same full_name won't give error
+
+INSERT INTO USER 
+VALUES(21,"MANORAM",'IN','1966-02-17 00:30:59');
+
+
+Error 1: could not execute statement due to a constraint failure (19 UNIQUE constraint failed: USER.user_id)
+
+INSERT INTO USER 
+VALUES(11,NULL,'IN','1966-02-17 00:30:59');
+
+
+Error 1: could not execute statement due to a constraint failure (19 NOT NULL constraint failed: USER.full_name)
+
+SELECT * FROM [USER]
+
+21	PRATEEK KUMAR MAURYA	IN	1998-02-16 00:00:00
