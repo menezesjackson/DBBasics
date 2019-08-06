@@ -1,0 +1,24 @@
+1st table--
+
+create table customer(name varchar(20), user_id int);
+
+
+
+
+insertion queries---
+
+insert into customer values( "Tom" , 7788);
+insert into customer values( "Jerry" , 7988);
+insert into customer values( "donald" , 8888);
+
+
+
+2nd table--
+
+create table food_order(order_id int, user_id int, food_item varchar (20), order_date timestamp);
+
+insertion queries---
+
+insert into food_order values (22, 7788, "noodles" , 1986-09-08);
+insert into food_order values (29, 7988, "pizza" , 2002-09-08);
+

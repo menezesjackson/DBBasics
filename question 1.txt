@@ -1,0 +1,16 @@
+create table USER( user_id INT, full_name VARCHAR (20) NOT NULL,country_code  INT  , dob timestamp);
+
+
+
+creating index-
+
+CREATE INDEX idx_fullname ON USER ( user_id);
+
+
+insertion queries-
+
+insert into USER values ( 12, "Charu" , 91 , 1969-01-09);
+insert into USER values ( 18, "Jon SNOW" , 11 , 1996-09-18);
+insert into USER values ( null, "Jon SNOW" , 11 , 1996-09-01);
+
+
