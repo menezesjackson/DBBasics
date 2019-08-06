@@ -74,3 +74,14 @@ name	user_id	order_id	food_item	order_date
 Manoram	1	19	MASALA DOSA	2019-07-06
 Manoram	1	17	PLAIN RICE	2019-08-06
 
+
+SELECT c.user_id, f.order_date
+FROM customer as c
+JOIN food_order as f
+ON c.user_id=f.user_id
+WHERE f.order_date BETWEEN '2017-08-07' AND '2019-07-25';
+
+Number of Records: 1
+user_id	order_date
+1	2019-07-06
+
