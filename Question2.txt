@@ -1,0 +1,57 @@
+CREATE TABLE customer(
+name varchar(255)
+, user_id int(20)
+)
+
+CREATE TABLE food_order(
+order_id int(20)
+, user_id int(10)
+, food_item varchar(255)
+, order_date timestamp
+) 
+
+INSERT INTO customer 
+VALUES (
+"abc1"
+,01
+)
+
+INSERT INTO customer 
+VALUES (
+"abc2"
+,02
+)
+
+INSERT INTO customer 
+VALUES (
+"abc3"
+,03
+)
+
+INSERT INTO food_order 
+VALUES (
+5642
+,03
+,"qwerty"
+,'2000-07-06'
+)
+
+INSERT INTO food_order 
+VALUES (
+1234
+,02
+,"xyz"
+,'2019-02-05'
+)
+
+SELECT food_order.order_id, customer.name, food_order.order_date, food_order.food_item
+FROM food_order
+INNER JOIN customer ON food_order.user_id=customer.user_id
+;
+
+SELECT food_order.order_id, customer.name, food_order.order_date, food_order.food_item
+FROM food_order
+INNER JOIN customer ON food_order.user_id=customer.user_id
+WHERE order_date BETWEEN '1990-01-01' AND '2001-01-01'
+;
+
