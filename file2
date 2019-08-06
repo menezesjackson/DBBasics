@@ -1,0 +1,45 @@
+
+CREATE TABLE customer(
+   user_id   INT  ,
+   name CHAR (20) ,
+   PRIMARY KEY (user_id),
+);
+
+INSERT INTO customer (user_id, name)
+VALUES ('12' , 'Manoram');
+
+
+INSERT INTO customer (user_id, name)
+VALUES ('14' , 'Prateek');
+
+
+INSERT INTO customer (user_id, name)
+VALUES ('15' , 'Manoram Taparia');
+
+
+
+
+
+CREATE TABLE food_order(
+   order_id INT,
+   user_id INT,
+   food_item CHAR(20),
+   order_date TIMESTAMP,
+);
+
+
+
+INSERT INTO food_order( order_id INT, user_id INT, food_item CHAR(20), order_date TIMESTAMP)
+VALUES ('2020', ' 20', 'PITZZA','2019-05-23 07:15:31.123456789' );
+
+
+INSERT INTO food_order( order_id INT, user_id INT, food_item CHAR(20), order_date TIMESTAMP)
+VALUES ('2021', ' 21', 'PITZZA-MANIA','2019-05-23 09:15:31.123456789' );
+
+
+
+#join
+
+SELECT food_order.OrderID, customers.Name, order.order_date
+FROM Orders
+INNER JOIN customers ON orders.user_id=customers.user_id;

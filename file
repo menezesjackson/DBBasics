@@ -1,0 +1,80 @@
+CREATE TABLE Users(
+   user_id   INT  ,
+   full_name VARCHAR (20) ,
+   country_code VARCHAR (25) ,
+    dob  TIMESTAMP ,       
+   PRIMARY KEY (user_id),
+);
+
+
+
+#Creating Unique Index
+
+ALTER TABLE User
+ADD UNIQUE (user_id);
+
+
+
+#Creating Constraint
+ALTER TABLE User MODIFY full_name VARCHAR NOT NULL;
+
+
+#Inserting
+INSERT INTO User (user_id, full_name, country_code,dob)
+VALUES (NULL,'Shubham_Rai', '147IO' , '2005-05-13 07:15:31.123456789');
+
+INSERT INTO User (user_id, full_name, country_code,dob)
+VALUES (NULL,'Shubham_Rai', '147IE' , '2009-05-13 07:15:31.123456789');
+
+
+INSERT INTO User (user_id, full_name, country_code,dob)
+VALUES (NULL,'Shubham_Rai', '147IP' , '2005-05-23 07:15:31.123456789');
+
+
+
+
+
+#ANSWER
+user_id	full_name	country_code	dob
+null	Shubham_Rai	147IO	2005-05-13 07:15:31.123456789
+null	Shubham_Rai	147IE	2009-05-13 07:15:31.123456789
+null	Shubham_Rai	147IP	2005-05-23 07:15:31.123456789
+
+
+CREATE TABLE customer(
+   user_id   INT  ,
+   name CHAR (20) ,
+   PRIMARY KEY (user_id),
+);
+
+INSERT INTO customer (user_id, name)
+VALUES ('12' , 'Manoram');
+
+
+INSERT INTO customer (user_id, name)
+VALUES ('14' , 'Prateek');
+
+
+INSERT INTO customer (user_id, name)
+VALUES ('15' , 'Manoram Taparia');
+
+
+
+
+
+CREATE TABLE food_order(
+   order_id INT,
+   user_id INT,
+   food_item CHAR(20),
+   order_date TIMESTAMP,
+);
+
+
+
+INSERT INTO food_order( order_id INT, user_id INT, food_item CHAR(20), order_date TIMESTAMP)
+VALUES ('2020', ' 20', 'PITZZA','2019-05-23 07:15:31.123456789' );
+
+
+INSERT INTO food_order( order_id INT, user_id INT, food_item CHAR(20), order_date TIMESTAMP)
+VALUES ('2021', ' 21', 'PITZZA-MANIA','2019-05-23 09:15:31.123456789' );
+
