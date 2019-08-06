@@ -1,0 +1,56 @@
+Query : SELECT * FROM USERS
+
+OUTPUT:
+
+1	Tom		US	1985-03-03
+2	Lucy	IN	1980-03-03
+3	Frank	UK	2000-06-09
+4	Jane	CA	2003-02-15
+5	Robert	AU	1995-12-23
+6	Max		AU	1990-11-03
+
+Query : SELECT * FROM USERS WHERE countryCode = 'AU';
+
+OUTPUT : 
+
+5	Robert	AU	1995-12-23
+6	Max	    AU	1990-11-03
+
+Query : SELECT * FROM USERS WHERE countryCode = 'AU' AND fullName LIKE 'R%';
+
+OUTPUT : 
+
+5	Robert	AU	1995-12-23
+
+Added  ->  INSERT INTO USERS VALUES(5,'Paul', null, '1995-12-23');
+
+After this,
+
+Query : SELECT *  FROM USERS WHERE Id IN (2, 3, 4, 5) AND countryCode IS NOT NULL;
+
+OUTPUT : 
+
+2	Lucy	IN	1980-03-03
+3	Frank	UK	2000-06-09
+4	Jane	CA	2003-02-15
+5	Robert	AU	1995-12-23
+
+Query : SELECT *  FROM USERS WHERE Id IN (2, 3, 4, 5) AND countryCode IS NULL;
+
+OUTPUT: 
+
+5	Paul	NULL	1995-12-23
+
+Query : SELECT * 
+FROM USERS
+WHERE Id IN (2, 3, 4, 5) 
+ORDER BY fullName;
+
+OUTPUT:
+
+3	Frank	UK	2000-06-09
+4	Jane	CA	2003-02-15
+2	Lucy	IN	1980-03-03
+5	Paul	NULL	1995-12-23
+5	Robert	AU	1995-12-23
+

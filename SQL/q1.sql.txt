@@ -1,0 +1,13 @@
+CREATE TABLE USERS(Id integer , fullName varchar(30) not null, countryCode char(2), dob date);
+
+/* Create few records in this table */
+INSERT INTO USERS VALUES(1,'Tom', 'US', '1985-03-03');
+INSERT INTO USERS VALUES(2,'Lucy', 'IN', '1980-03-03');
+INSERT INTO USERS VALUES(3,'Frank', 'UK', '2000-06-09');
+INSERT INTO USERS VALUES(4,'Jane', 'CA', '2003-02-15');
+INSERT INTO USERS VALUES(5,'Robert', 'AU', '1995-12-23');
+INSERT INTO USERS VALUES(6,'Max', 'AU', '1990-11-03');
+
+
+/* Display all the records from the table */
+SELECT * FROM USERS;

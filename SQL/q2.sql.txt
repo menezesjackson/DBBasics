@@ -1,0 +1,11 @@
+CREATE TABLE customer(Id integer , fullName varchar(30));
+
+/* Create few records in this table */
+INSERT INTO customer VALUES(1,'Tom');
+INSERT INTO customer VALUES(2,'Lucy');
+INSERT INTO customer VALUES(3,'Frank');
+
+CREATE TABLE foodOrder (id integer, userId integer, foodItem varchar(20), orderDate date);
+INSERT INTO foodOrder VALUES(1, 1, 'Rice', '2019-02-15');
+INSERT INTO foodOrder VALUES(2, 1, 'Chicken', '2019-12-23');
+INSERT INTO foodOrder VALUES(3, 3, 'Rice', '2019-12-23');

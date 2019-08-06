@@ -1,0 +1,51 @@
+Query : SELECT * 
+FROM customer
+INNER JOIN foodOrder 
+ON customer.id = foodOrder.userId;
+
+Output:
+
+1	Tom		1	1	Rice	2019-02-15
+1	Tom		2	1	Chicken	2019-12-23
+3	Frank	3	3	Rice	2019-12-23
+
+Query : 
+
+SELECT * 
+FROM customer
+LEFT OUTER JOIN foodOrder 
+ON customer.id = foodOrder.userId;
+
+Output : 
+
+1	Tom		1	1	Rice	2019-02-15
+1	Tom		2	1	Chicken	2019-12-23
+3	Frank	3	3	Rice	2019-12-23
+2	Lucy	NULL	NULL	NULL	NULL
+
+Query: 
+
+SELECT * 
+FROM customer
+RIGHT OUTER JOIN foodOrder 
+ON customer.id = foodOrder.userId;
+
+Output : 
+
+1	Tom		1	1	Rice	2019-02-15
+1	Tom		2	1	Chicken	2019-12-23
+3	Frank	3	3	Rice	2019-12-23
+
+
+Query: (to Prepare a JOIN query to give orders made by any one customer.)
+
+SELECT foodOrder.* 
+FROM customer
+JOIN foodOrder 
+ON customer.id = foodOrder.userId
+WHERE customer.id = 1;
+
+Output:
+
+1	1	Rice	2019-02-15
+2	1	Chicken	2019-12-23
