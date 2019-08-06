@@ -1,0 +1,21 @@
+1. Create table.(30 minutes)
+
+a. CREATE TABLE USER with columns (user_id, full_name, country_code, dob)
+Make sure you include below datatypes: numeric, varchar, char, timestamp
+b. CREATE INDEX
+Create unique index on column(user_id)
+c. Create CONSTRAINT
+Create a not null constraint on column full_name.
+
+d. Prepare 3 insert queries, which includes null values(for user_id) and duplicate column values(full_name) and record its output/error message.
+
+Help Link: https://www.postgresql.org/docs/9.6/static/ddl.html
+
+2. Create 2 tables. (30 minutes)
+customer(name, user_id),  - (Add 3 customers to the table)
+food_order(order_id, user_id, food_item, order_date) (Create 2 orders each for any 2 customers)
+
+1. Prepare a JOIN query to give orders made by any one customer.
+2. Prepare a JOIN Query to give list of customers who ordered between two specific dates.
+
+P.S.: To Try out the queries either Postgres in local or any online SQL editor can be used.
