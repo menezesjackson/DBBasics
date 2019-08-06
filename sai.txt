@@ -1,0 +1,54 @@
+Answer for Question 1:
+
+create table User
+(
+UserID int PRIMARY KEY,
+FullName varchar(255) NOT NULL,
+Country varchar(255),
+Dob Date,
+City varchar(255)
+);
+insert into User (UserID,Country,Dob,City)
+values ('1','Norway','1990-08-21','hyd');
+insert into User(UserID,FullName,Country,Dob,City)
+values('1','sai','Norway','1990-08-21','hyd');
+insert into User(UserID,FullName,Country,Dob,City)
+values('1','sai','Norway','1990-08-21','hyd');
+
+select * FROM [USER];
+
+Output:
+1|sai|Norway|1990-08-21|hyd
+
+Error: near line 9: NOT NULL constraint failed: User.FullName
+Error: near line 13: UNIQUE constraint failed: User.UserID
+        
+       
+-------------------------------------------------------
+Answer for question 2:
+
+create table customer(user_id int PRiMARY KEY, full_name varchar(255) NOT NULL);
+insert into customer values(1, 'sai');
+insert into customer values(2, 'kiran');
+insert into customer values(3, 'chai');
+
+create table food_order(order_id int PRiMARY KEY, user_id int , food_item varchar(20), order_date date);
+insert into food_order values (1, 1, 'curdrice', '1990-09-23');
+insert into food_order values(2, 1, 'biryani', '1991-09-23');
+insert into food_order values(3, 2, 'juice', '1992-09-23');
+insert into food_order values(4, 3, 'sambar', '1993-09-23');
+
+select customer.user_id, food_order.order_id,food_order.food_item from customer inner join food_order on customer.user_id = food_order.user_id;
+
+select customer.user_id, food_order.order_id,food_order.food_item,  food_order.order_date from customer inner join food_order on customer.user_id = food_order.user_id where food_order.order_date between '1990-09-23' and '1992-09-30';
+
+Output :
+1|1|curdrice
+1|2|biryani
+2|3|juice
+3|4|sambar
+1|1|curdrice|1990-09-23
+1|2|biryani|1991-09-23
+2|3|juice|1992-09-23
+
+ 
