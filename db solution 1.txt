@@ -1,0 +1,22 @@
+/* Create a table called NAMES */
+CREATE TABLE USER (
+user_id integer UNIQUE, 
+full_name varchar NOT NULL,
+country_code char, 
+dob timestamp);
+
+CREATE UNIQUE INDEX user_id ON USER(user_id,full_name,country_code,dob);
+INSERT INTO USER VALUES(NULL,'Tom','ind',2000-03-09);
+INSERT INTO USER VALUES(NULL,'Tom','ind',2000-03-09);
+INSERT INTO USER VALUES(1,NULL,'ind',2000-03-09);
+SELECT * FROM USER;
+
+
+
+output
+
+
+|Tom|ind|1988
+|Tom|ind|1988
+
+Error: near line 13: NOT NULL constraint failed: USER.full_name

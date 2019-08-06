@@ -1,0 +1,31 @@
+/* Create a table called NAMES */
+CREATE TABLE customer(
+name varchar, 
+user_id integer UNIQUE);
+
+CREATE TABLE food_order(
+order_id integer , 
+user_id integer, 
+food_item varchar, 
+order_date timestamp);
+
+INSERT INTO  customer VALUES('Tom','1');
+INSERT INTO customer VALUES('Tony','2');
+INSERT INTO  customer VALUES("tommy",'3');
+INSERT INTO food_order VALUES(100,1,'chola',2000-02-09);
+INSERT INTO food_order VALUES(101,1,'matar',2000-02-09);
+
+SELECT customer.user_id,food_order.user_id
+FROM customer
+FULL OUTER JOIN food_order ON customer.user_id=food_order.user_id
+ORDER BY customer.user_id;
+
+
+
+
+output
+
+
+
+
+Error: near line 18: RIGHT and FULL OUTER JOINs are not currently supported
