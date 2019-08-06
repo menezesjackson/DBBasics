@@ -1,0 +1,59 @@
+CREATE TABLE USER (user_id int, full_name varchar NOT NULL, country_code char, dob timestamp);
+
+
+CREATE UNIQUE INDEX index_user_id ON USER (user_id);
+
+
+INSERT INTO USER (user_id, full_name, country_code, dob ) VALUES ( 1, 'AjayChandra', 10, '1998-03-03 00:00:01' );
+
+
+INSERT INTO USER (user_id, full_name, country_code, dob ) VALUES ( 2, 'Rahul', 20, '2000-06-25 00:00:01' );
+
+
+INSERT INTO USER (user_id, full_name, country_code, dob ) VALUES ( null, 'AjayChandra', 10, '1999-02-01 00:00:01' );
+
+
+SELECT * FROM USER;
+
+OUTPUT:
+1|AjayChandra|10|1998-03-03 00:00:01
+
+2|Rahul|20|2000-06-25 00:00:01
+
+|AjayChandra|10|1999-02-01 00:00:01
+
+
+
+
+
+create table customer (name varchar NOT NULL, user_id int );
+
+
+create table food_order ( order_id int NOT NULL, user_id int NOT NULL, food_item varchar NOT NULL, order_date timestamp );
+
+
+insert into customer values ( 'Ajay', 1 );
+
+insert into customer values ( 'Rahul', 2 );
+
+
+insert into food_order values ( 11, 1, 'Chicken Biryani', '2019-08-06 05:05:44' );
+
+insert into food_order values ( 12, 2, 'Chicken Fried Rice', '2019-08-07 06:05:44' );
+
+
+select customer.user_id, order_id, food_item from customer INNER JOIN food_order on customer.user_id = food_order.user_id WHERE food_order.user_id = 1;
+
+select customer.user_id, order_id, food_item from customer INNER JOIN food_order on customer.user_id = food_order.user_id WHERE food_order.user_id = 2;
+
+
+select customer.user_id, order_id, food_item, order_date from customer INNER JOIN food_order on customer.user_id = food_order.user_id WHERE food_order.order_date BETWEEN '2019-08-06' AND '2019-08-08';
+
+OUTPUT:
+1|11|Chicken Biryani
+
+2|12|Chicken Fried Rice
+
+1|11|Chicken Biryani|2019-08-06 05:05:44
+
+2|12|Chicken Fried Rice|2019-08-07 06:05:44
