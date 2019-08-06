@@ -1,0 +1,32 @@
+CREATE TABLE USER (user_id numeric,full_name varchar NOT NULL,country_code char,dob timestamp);
+
+CREATE INDEX user_name ON USER(user_name,full_name);
+
+insert into USER values(NULL,"Shashank","x",2038-01-19);
+
+------------------------------------------------------------------------------------------------------
+
+create table customer (name varchar(255),user_id integer);
+
+insert into customer values("ABC",1);
+insert into customer values("PQR",2);
+insert into customer values("XYZ",3);
+
+create table food_order (order_id varchar(255),user_id integer,food_item varchar(255),order_date date);
+insert into food_order values("1x",1,"Burger",'2019-06-08');
+insert into food_order values("2x",4,"Pizza",'2019-06-08');
+
+
+SELECT *
+FROM customer
+INNER JOIN food_order
+ON customer.user_id=food_order.user_id;
+
+
+insert into food_order values("1x",1,"Burger",'2021-06-08');
+//this is done to check the downCondition
+
+select user_id
+from food_order
+where order_date BETWEEN '1985-01-01' AND '2020-01-01';
+
