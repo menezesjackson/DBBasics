@@ -1,0 +1,33 @@
+
+Question 1:
+
+create table USERS (
+user_id int unique,
+full_name varchar(20) not null,
+country_code char(6),
+dob timestamp 
+)
+output: You have made changes to the database.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+insert into users (user_id,full_name,country_code,dob) values(1,"yeshwanth ln",'562',2019);
+insert into users (user_id,full_name,country_code,dob) values(1,"ajay",'562',2017);
+
+output: Error 1: could not execute statement due to a constraint failure (19 UNIQUE constraint failed: USERS.user_id)
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+insert into users (user_id,country_code,dob) values(2,'562',2019)
+output: Error 1: could not execute statement due to a constraint failure (19 NOT NULL constraint failed: USERS.full_name)
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+

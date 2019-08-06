@@ -1,0 +1,45 @@
+Question 2:
+
+create table customer(name varchar(20), user_id int)
+output: You have made changes to the database.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+insert into customer values ("yeshwanth",1)
+insert into customer values ("ajay",2)
+insert into customer values ("suhas",3)
+
+
+output : You have made changes to the database. Rows affected: 3
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+create table food_order(order_id int , user_id int , food_item varchar(10), order_date timestamp)
+output: You have made changes to the database.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+insert into food_order values (1,1,"chapathi",8-6-2017)
+insert into food_order values (2,1,"parota",1-6-2017)
+insert into food_order values (3,2,"parota",2-7-2019)
+insert into food_order values (4,2,"mango rice",8-6-2020)
+
+
+-------------------------------------------------------------------------------------
+
+select c.user_id, c.name , f.order_id,f.food_item from customer as c  inner join food_order as f
+on c.user_id = f.user_id and c.user_id =1
+
+Output :
+
+user_id	name	order_id	food_item
+2	ajay	3	parota
+2	ajay	4	mango rice
+
+select c.user_id, c.name , f.order_id,f.food_item from customer as c  inner join food_order as f
+on c.user_id = f.user_id and order_id between 1-1-2017 and 1-1-2018 
+
+Output: 
+
+user_id	name	order_id	food_item
+1	yeshwanth	1	chapathi
+1	yeshwanth	2	parota
