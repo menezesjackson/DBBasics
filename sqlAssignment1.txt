@@ -1,0 +1,12 @@
+1)CREATE TABLE USER(user_id number primary key not null,full_name varchar(30) not null unique,country_code char(30),dob timestamp);
+
+  INSERT INTO USER(user_id,full_name,country_code,dob) VALUES(1,'Abhishek','IND',"1997-06-27 10:01:21");
+
+  INSERT INTO USER(user_id,full_name,country_code,dob) VALUES(null,'Satwik','IND',"1997-05-12 12:10:11");
+  --Error: near line 5: NOT NULL constraint failed: USER.user_id
+
+  INSERT INTO USER(user_id,full_name,country_code,dob) VALUES(3,'Abhishek','IND',CURRENT_TIMESTAMP);
+  --Error: near line 7: UNIQUE constraint failed: USER.full_name
+
+  select * from USER;
+  -- 1|Abhishek|IND|1997-06-27 10:01:21
