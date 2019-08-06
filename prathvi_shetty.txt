@@ -1,0 +1,79 @@
+CREATE TABLE Userdata (
+ userId numeric UNIQUE,
+ full_name varchar(255) NOT NULL,
+ country_code char,
+ dob timestamp
+);
+
+CREATE INDEX userId
+ON Userdata (userId, full_name, country_code, dob);
+
+INSERT INTO Userdata (userId, full_name, country_code, dob)
+VALUES (1,"HARRY " ,'b', 19-07-1997);
+You have made changes to the database. Rows affected: 1
+
+
+INSERT INTO Userdata (userId, full_name, country_code, dob)
+VALUES (1,"TOM " ,'b', 19-07-1997);
+Error 1: could not execute statement due to a constraint failure (19 UNIQUE constraint failed: Userdata.userId)
+
+INSERT INTO Userdata (userId, full_name, country_code, dob)
+VALUES (2,NULL ,'b', 19-07-1997);
+Error 1: could not execute statement due to a constraint failure (19 NOT NULL constraint failed: Userdata.full_name)
+
+
+
+Question 2:
+
+CREATE TABLE customer (
+ userId numeric UNIQUE,
+ name varchar(255) NOT NULL
+)
+You have made changes to the database.
+
+CREATE TABLE food_order (
+ order_id numeric UNIQUE,
+ user_id numeric,
+ food_item varchar(255) NOT NULL,
+ order_date timestamp
+);
+You have made changes to the database.
+
+INSERT INTO customer (userId, name)
+VALUES (1, "Harry");
+
+INSERT INTO customer (userId, name)
+VALUES (1, "potter");
+
+
+INSERT INTO customer (userId, name)
+VALUES (3, "tom");
+
+INSERT INTO food_order (order_id, user_id, food_item, order_date)
+VALUES (1,1,"DOSA", 12-08-2019);
+
+INSERT INTO food_order (order_id, user_id, food_item, order_date)
+VALUES (2,1,"VADA", 15-08-2019);
+
+INSERT INTO food_order (order_id, user_id, food_item, order_date)
+VALUES (3,2,"ROTI", 19-08-2019);
+
+INSERT INTO food_order (order_id, user_id, food_item, order_date)
+VALUES (4,2,"ROTI", 19-09-2019);
+
+select name, food_item
+from customer
+join food_order on customer.userId = food_order.user_id
+where customer.userId=1;
+
+name	food_item
+Harry	DOSA
+Harry	VADA
+
+select distinct name, food_item
+from customer
+join food_order  
+where order_date between 12-08-2019 and  19-09-2019 ;
+
+
+
