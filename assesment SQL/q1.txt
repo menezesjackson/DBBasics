@@ -1,0 +1,40 @@
+1.
+
+
+CREATE TABLE USER1(
+user_id INT NOT NULL,
+full_name VARCHAR(100) NOT NULL,
+country_code CHAR,
+dob timestamp);
+
+
+Result:
+
+You have made changes to the database.
+
+
+-------------------------------------------------------------
+
+
+
+CREATE INDEX index1 ON USER1(user_id);
+
+
+
+Result:
+
+You have made changes to the database.
+
+---------------------------------------------------------------
+
+
+
+INSERT INTO USER1 (full_name, country_code, dob)
+VALUES 
+('Rahul Tiwari','435372',2008-11-11),
+('Rahul Tiwari','436372',2008-12-11),
+('Rahul Tiwari','435392',2008-08-11);
+
+
+
+Error 1: could not execute statement due to a constraint failure (19 NOT NULL constraint failed: USER1.user_id)

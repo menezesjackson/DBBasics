@@ -1,0 +1,62 @@
+2.
+CREATE TABLE customer(
+name varchar(100) NOT NULL,
+user_id INT);
+
+  Result:
+    You have made changes to the database.
+
+
+
+CREATE TABLE food_order(
+order_id INT NOT NULL,
+user_id INT,
+food_item VARCHAR(100),
+order_date TIMESTAMP);
+
+
+  Result:
+    You have made changes to the database.
+
+---------------------------------------------------------------------------------------------------
+INSERT INTO customer (name,user_id)
+VALUES
+('Rahul',1),
+('Rohan',2),
+('Subham',3);
+
+	Result:
+You have made changes to the database. Rows affected: 3
+
+
+INSERT INTO food_order (order_id,user_id,food_item,order_date)
+VALUES
+(123,1,'abc',2008-11-11),
+(456,3,'def',2008-11-12);
+
+	Result:
+You have made changes to the database. Rows affected: 2
+--------------------------------------------------------------------------------------------------------
+
+
+SELECT customer.name,food_order.food_item
+FROM customer
+INNER JOIN food_order ON customer.user_id = food_order.user_id;
+
+	Result:
+Number of Records: 2
+name	food_item
+Rahul	abc
+Subham	def
+
+-----------------------------------------------------------------------------------------------------
+
+SELECT customer.name
+FROM customer
+NATURAL JOIN food_order where order_date between '2008-11-10' and '2008-11-12';
+
+	Result:
+name
+Rahul
+Subham
+---------------------------------------------------------------------------
